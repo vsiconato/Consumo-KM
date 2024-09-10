@@ -1,0 +1,65 @@
+BoxLayout:
+    orientation: 'vertical'
+    padding: 20
+    spacing: 15
+
+    Label:
+        text: 'Calculadora de Consumo de Combustível'
+        font_size: '26sp'
+        color: 1, 0, 0, 1  # Cor vermelha
+        bold: True
+        halign: 'center'
+        size_hint_y: None
+        height: 50
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 50
+
+        Label:
+            text: 'Selecione o Veículo:'
+            font_size: '18sp'
+
+        Spinner:
+            id: car_spinner
+            text: 'Selecione o Veículo'
+            values: ['Carro 1', 'Carro 2']  # Adicione valores para teste
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 50
+
+        Label:
+            text: 'Km Atual:'
+            font_size: '18sp'
+
+        TextInput:
+            id: km_current_input
+            hint_text: 'Insira a quilometragem atual'
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 50
+
+        Label:
+            text: 'Combustível Abastecido (litros):'
+            font_size: '18sp'
+
+        TextInput:
+            id: fuel_input
+            hint_text: 'Insira a quantidade de combustível'
+
+    Button:
+        text: 'Calcular e Salvar Média Km/L'
+        on_press: app.calculate_and_save(self)
+        size_hint_y: None
+        height: 50
+        color: 1, 0, 0, 1
+
+    Label:
+        id: result_label
+        text: ''
+        font_size: '16sp'

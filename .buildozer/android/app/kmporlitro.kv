@@ -1,0 +1,106 @@
+BoxLayout:
+    orientation: 'vertical'
+    padding: 20
+    spacing: 10
+
+    # Título
+    Label:
+        text: 'Calculadora de Consumo de Combustível'
+        font_size: '24sp'
+        color: 0.2, 0.6, 0.8, 1  # Cor azul
+        bold: True
+        halign: 'center'
+        size_hint_y: None
+        height: 40
+
+    # Campo para o km anterior
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 50
+
+        Label:
+            text: 'KM Anterior:'
+            font_size: '18sp'
+            size_hint_x: 0.4
+            halign: 'right'
+            valign: 'middle'
+
+        TextInput:
+            id: km_anterior
+            hint_text: 'Ex: 8400'
+            multiline: False
+            input_filter: 'int'  # Aceita apenas números inteiros
+            font_size: '18sp'
+            size_hint_x: 0.6
+
+    # Campo para o km atual
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 50
+
+        Label:
+            text: 'KM Atual:'
+            font_size: '18sp'
+            size_hint_x: 0.4
+            halign: 'right'
+            valign: 'middle'
+
+        TextInput:
+            id: km_atual
+            hint_text: 'Ex: 8522'
+            multiline: False
+            input_filter: 'int'
+            font_size: '18sp'
+            size_hint_x: 0.6
+
+    # Campo para litros abastecidos
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 50
+
+        Label:
+            text: 'Litros Abastecidos:'
+            font_size: '18sp'
+            size_hint_x: 0.4
+            halign: 'right'
+            valign: 'middle'
+
+        TextInput:
+            id: litros
+            hint_text: 'Ex: 3.234'
+            multiline: False
+            input_filter: 'float'  # Aceita apenas números com ponto flutuante
+            font_size: '18sp'
+            size_hint_x: 0.6
+
+    # Botão para calcular
+    Button:
+        text: 'Calcular Consumo'
+        font_size: '20sp'
+        background_color: 0.2, 0.6, 0.8, 1  # Azul
+        color: 1, 1, 1, 1  # Cor do texto branco
+        on_press: app.calcular_km_litro()  # Função ao clicar no botão
+        size_hint_y: None
+        height: 50
+
+    # Resultado do cálculo
+    Label:
+        id: resultado
+        text: 'Seu consumo aparecerá aqui'
+        font_size: '20sp'
+        color: 0, 0, 0, 1  # Texto preto
+        halign: 'center'
+        valign: 'middle'
+        size_hint_y: None
+        height: 40
+
+    # Barra de progresso (apenas visual, opcional)
+    ProgressBar:
+        max: 100
+        value: 60
+        size_hint_y: None
+        height: 30
+        pos_hint: {'center_x': 0.5}
